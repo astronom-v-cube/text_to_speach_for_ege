@@ -161,42 +161,30 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         pronunciation_US = 'com'
 
         if self.radioButton.isChecked():
-           print("Выбрана: 1")
-           speed = 0.8
+            speed = 0.8
         elif self.radioButton_2.isChecked():
-           print("Выбрана: 2")
-           speed = 0.9
+            speed = 0.9
         elif self.radioButton_3.isChecked():
-           print("Выбрана: 3")
-           speed = 1
+            speed = 1
         elif self.radioButton_4.isChecked():
-           print("Выбрана: 4")
-           speed = 1.1
+            speed = 1.1
         elif self.radioButton_5.isChecked():
-           print("Выбрана: 5")
-           speed = 1.2
+            speed = 1.2
         elif self.radioButton_6.isChecked():
-           print("Выбрана: 6")
-           speed = 1.3
+            speed = 1.3
         elif self.radioButton_7.isChecked():
-           print("Выбрана: 7")
-           speed = 1.4
+            speed = 1.4
         elif self.radioButton_8.isChecked():
-           print("Выбрана: 8")
-           speed = 1.5
+            speed = 1.5
         elif self.radioButton_9.isChecked():
-           print("Выбрана: 9")
-           speed = 1.75
+            speed = 1.75
         elif self.radioButton_10.isChecked():
-           print("Выбрана: 10")
-           speed = 2
+            speed = 2
         
         if self.radioButton_11.isChecked():
-           print("Выбрана: 11")
-           pronunciation = pronunciation_UK
+            pronunciation = pronunciation_UK
         elif self.radioButton_12.isChecked():
-           print("Выбрана: 12")
-           pronunciation = pronunciation_US
+            pronunciation = pronunciation_US
 
         text = self.textEdit.toPlainText()
         name = self.lineEdit.text()
@@ -204,12 +192,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         tts = gTTS(text, lang = 'en', tld = pronunciation)
         tts.save(f'{name}.mp3')
         
-        (
+"""         (
             ffmpeg
             .input(f'{name}.mp3')
             .output(f'{name}.mp3', atempo=speed)
             .run()
-        )
+        ) """
 
 if __name__ == "__main__":
     import sys
