@@ -120,36 +120,48 @@ class Ui_MainWindow(object):
         self.radioButton.setText(_translate("MainWindow", "UK "))
         self.groupBox_3.setTitle(_translate("MainWindow", "Имя файла"))
 
-    class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
-        def __init__(self):
-            super().__init__()
-            self.setupUi(self)
-            self.button_start.clicked.connect(self.create_bot)
+class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.pushButton.clicked.connect(self.create_mp3)
 
-        def create_bot(self):
+    def create_mp3(self):
 
-            if self.radioButton_3.isChecked():
-                print("Выбрана: radioButton_3")
-            elif self.radioButton_4.isChecked():
-                print("Выбрана: radioButton_4")
-            elif self.radioButton_5.isChecked():
-                print("Выбрана: radioButton_5")
-            elif self.radioButton_6.isChecked():
-                print("Выбрана: radioButton_6")
-            elif self.radioButton_7.isChecked():
-                print("Выбрана: radioButton_7")
-            elif self.radioButton_21.isChecked():
-                print("Выбрана: radioButton_21")
-            elif self.radioButton_22.isChecked():
-                print("Выбрана: radioButton_22")
-            elif self.radioButton_23.isChecked():
-                print("Выбрана: radioButton_23")
-            elif self.radioButton_25.isChecked():
-                print("Выбрана: radioButton_25")
-            elif self.radioButton_26.isChecked():
-                print("Выбрана: radioButton_26")
-            elif self.radioButton_27.isChecked():
-                print("Выбрана: radioButton_27")
+        text = self.textEdit.toPlainText() 
+
+        if self.radioButton_3.isChecked():
+            speed = 0.75
+            print("Выбрана: radioButton_3")
+        elif self.radioButton_4.isChecked():
+            speed = 0.9
+            print("Выбрана: radioButton_4")
+        elif self.radioButton_5.isChecked():
+            speed = 1
+            print("Выбрана: radioButton_5")
+        elif self.radioButton_6.isChecked():
+            speed = 1.1
+            print("Выбрана: radioButton_6")
+        elif self.radioButton_21.isChecked():
+            speed = 1.2
+            print("Выбрана: radioButton_21")
+        elif self.radioButton_22.isChecked():
+            speed = 1.3
+            print("Выбрана: radioButton_22")
+        elif self.radioButton_23.isChecked():
+            speed = 1.4
+            print("Выбрана: radioButton_23")
+        elif self.radioButton_25.isChecked():
+            speed = 1.5
+            print("Выбрана: radioButton_25")
+        elif self.radioButton_26.isChecked():
+            speed = 1.75
+            print("Выбрана: radioButton_26")
+        elif self.radioButton_27.isChecked():
+            speed = 2
+            print("Выбрана: radioButton_27")
+    
+
 
 
 if __name__ == "__main__":

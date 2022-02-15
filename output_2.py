@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'design_3.ui'
+# Form implementation generated from reading ui file 'design_2.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -86,13 +85,13 @@ class Ui_MainWindow(object):
         self.radioButton_12.setObjectName("radioButton_12")
         self.verticalLayout_2.addWidget(self.radioButton_12)
         self.group_text_editor = QtWidgets.QGroupBox(self.centralwidget)
-        self.group_text_editor.setGeometry(QtCore.QRect(280, 10, 671, 281))
+        self.group_text_editor.setGeometry(QtCore.QRect(260, 10, 691, 281))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.group_text_editor.setFont(font)
         self.group_text_editor.setObjectName("group_text_editor")
         self.textEdit = QtWidgets.QTextEdit(self.group_text_editor)
-        self.textEdit.setGeometry(QtCore.QRect(10, 20, 651, 251))
+        self.textEdit.setGeometry(QtCore.QRect(10, 20, 671, 251))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.textEdit.setFont(font)
@@ -103,15 +102,6 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
-        self.group_file_name = QtWidgets.QGroupBox(self.centralwidget)
-        self.group_file_name.setGeometry(QtCore.QRect(140, 120, 131, 61))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.group_file_name.setFont(font)
-        self.group_file_name.setObjectName("group_file_name")
-        self.lineEdit = QtWidgets.QLineEdit(self.group_file_name)
-        self.lineEdit.setGeometry(QtCore.QRect(10, 20, 111, 31))
-        self.lineEdit.setObjectName("lineEdit")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 961, 21))
@@ -143,7 +133,6 @@ class Ui_MainWindow(object):
         self.radioButton_12.setText(_translate("MainWindow", "US"))
         self.group_text_editor.setTitle(_translate("MainWindow", "Текст"))
         self.pushButton.setText(_translate("MainWindow", "Сохранить"))
-        self.group_file_name.setTitle(_translate("MainWindow", "Имя файла"))
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -154,62 +143,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def create_mp3(self):
 
-        from gtts import gTTS
-        import ffmpeg
-
-        pronunciation_UK = 'co.uk'  
-        pronunciation_US = 'com'
-
         if self.radioButton.isChecked():
-           print("Выбрана: 1")
-           speed = 0.8
-        elif self.radioButton_2.isChecked():
-           print("Выбрана: 2")
-           speed = 0.9
-        elif self.radioButton_3.isChecked():
-           print("Выбрана: 3")
-           speed = 1
-        elif self.radioButton_4.isChecked():
-           print("Выбрана: 4")
-           speed = 1.1
-        elif self.radioButton_5.isChecked():
-           print("Выбрана: 5")
-           speed = 1.2
-        elif self.radioButton_6.isChecked():
-           print("Выбрана: 6")
-           speed = 1.3
-        elif self.radioButton_7.isChecked():
-           print("Выбрана: 7")
-           speed = 1.4
-        elif self.radioButton_8.isChecked():
-           print("Выбрана: 8")
-           speed = 1.5
-        elif self.radioButton_9.isChecked():
-           print("Выбрана: 9")
-           speed = 1.75
-        elif self.radioButton_10.isChecked():
-           print("Выбрана: 10")
-           speed = 2
-        
-        if self.radioButton_11.isChecked():
-           print("Выбрана: 11")
-           pronunciation = pronunciation_UK
-        elif self.radioButton_12.isChecked():
-           print("Выбрана: 12")
-           pronunciation = pronunciation_US
-
-        text = self.textEdit.toPlainText()
-        name = self.lineEdit.text()
-
-        tts = gTTS(text, lang = 'en', tld = pronunciation)
-        tts.save(f'{name}.mp3')
-        
-        (
-            ffmpeg
-            .input(f'{name}.mp3')
-            .output(f'{name}.mp3', atempo=speed)
-            .run()
-        )
+           print("Выбрана: radioButton")
 
 if __name__ == "__main__":
     import sys
