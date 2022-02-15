@@ -201,6 +201,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 .output(f'_{name}.mp3')
                 .run()
             }
+            os.remove(f'{name}.mp3')
             os.rename(f'_{name}.mp3', f'{name}.mp3')
 
 if __name__ == "__main__":
