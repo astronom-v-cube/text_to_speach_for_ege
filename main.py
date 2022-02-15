@@ -155,7 +155,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def create_mp3(self):
 
         from gtts import gTTS
-        import ffmpeg
+        import os
 
         pronunciation_UK = 'co.uk'  
         pronunciation_US = 'com'
@@ -192,12 +192,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         tts = gTTS(text, lang = 'en', tld = pronunciation)
         tts.save(f'{name}.mp3')
         
-"""         (
-            ffmpeg
-            .input(f'{name}.mp3')
-            .output(f'{name}.mp3', atempo=speed)
-            .run()
-        ) """
+        if speed != 1:
+            import ffmpeg
+            {
+                ffmpeg
+                .input(f'{name}.mp3')
+                .filter("atempo", speed)
+                .output(f'_{name}.mp3')
+                .run()
+            }
+            os.rename(f'_{name}.mp3', f'{name}.mp3')
 
 if __name__ == "__main__":
     import sys
